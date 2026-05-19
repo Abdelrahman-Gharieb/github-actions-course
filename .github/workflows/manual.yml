@@ -1,19 +1,10 @@
 name: Manual Workflow
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: "Choose Environment"
-        required: true
-        default: "staging"
-        type: choice
-        options:
-          - staging
-          - production
-
+  repository_dispatch:
+    types: [incident_report]
 jobs:
-  deploy:
+  handle-incident:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy applicatation
-        run: echo "Deploying The Application to ${{ inputs.environment }}..."
+      - name: Print Incident Details
+        run: echo "Incident reported"
