@@ -1,9 +1,19 @@
 name: Manual Workflow
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose Environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deeploy applicatation
+      - name: Deploy applicatation
         run: echo "Deploying The Application..."
