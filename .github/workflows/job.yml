@@ -4,19 +4,14 @@ jobs:
   job_01:
     runs-on: ubuntu-latest
     steps:
-      - run: "echo Job ${{ github.job }}"
-  job_02:
-    runs-on:  ubuntu-latest
-    needs: job_01
-    steps:
-      - run: "echo Job ${{ github.job }}"
-  job_03:
-    runs-on: ubuntu-latest
-    needs: job_01
-    steps:
-      - run: "echo Job ${{ github.job }}"
-  job_04:
-    runs-on: ubuntu-latest
-    needs: [job_02, job_03]
-    steps:
-      - run: "echo Job ${{ github.job }}"
+      - run: |
+          echo Job ${{ github.job }}
+          npm install
+          npm run build
+        working-directory: ./tmp
+        shell: bash # By default the Runners commes with it's SHELL, but if U want to use another SHELL e.g. [pwsh ( PowerShell ), cmd, python, powershell] use the [ shell ] keyword .
+
+      - run: |
+          # If you want to use another Shell and not supported by GitHub Actions -> U could do this as follows:
+          print %ENV
+        shell: perl {0}  # This means that the GitHub Actions will run the Previous COMMAND ( print %ENV ) with the perl SHELL .
