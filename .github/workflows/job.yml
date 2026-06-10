@@ -8,7 +8,7 @@ jobs:
           echo Job ${{ github.job }}
           npm install
           npm run build
-        working-directory: ./tmp
+        #working-directory: ./tmp
         shell: bash # By default the Runners commes with it's SHELL, but if U want to use another SHELL e.g. [pwsh ( PowerShell ), cmd, python, powershell] use the [ shell ] keyword .
 
       - run: |
