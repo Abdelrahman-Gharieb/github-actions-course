@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch
+jobs:
+  job_01:
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: 
+        os: [ubuntu-latest, linux-latest, macos-latest] # Runners avaialble to use.
+        node_version: [14.x, 15.x, 16.x] # These are differnt versions of NodeJS, This means we want to test each NodeJS Version on every OS .
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Setup up NodeJS
+        uses: actions/setup-node@6.4.0
+        with: 
+          node-version: ${{ matrix.node_version }}
