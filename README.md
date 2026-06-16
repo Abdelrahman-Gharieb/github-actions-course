@@ -41,9 +41,13 @@ GitHub Actions is more than just a CI/CD tool; it is a powerful automation engin
 githib-actions-course/
 ├── .github/
 │   └── workflows/
-│       ├── simple-ci.yml
-│       ├── deployment.yml
-│       └── security-scan.yml
+│       ├── actions.yml
+│       ├── commands.yml
+│       ├── job.yml
+│       ├── main.yml
+│       ├── manual.yml
+│       └──push-pr.yml
+|
 ├── src/                # Sample application code
-├── scripts/            # Automation scripts (BASH/Python)
+├── package.json
 └── README.md           # Documentation and course notes
