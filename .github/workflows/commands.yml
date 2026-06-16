@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          deprecated=true
+          if [[ deprecated == true ]]; then
+            # warning -> Is a Workflow COMMAND, not a step command. It will be displayed in the Actions UI and will fail the workflow.
+            echo ::warning::This is deprecated function.
+          fi
