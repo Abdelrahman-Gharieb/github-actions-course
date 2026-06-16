@@ -7,7 +7,6 @@ jobs:
     steps:
       - run: |
           deprecated=true
-          if [[ deprecated == true ]]; then
-            # warning -> Is a Workflow COMMAND, not a step command. It will be displayed in the Actions UI and will fail the workflow.
+          if [[ deprecated ]]; then
             echo "::warning::This is deprecated function"
           fi
